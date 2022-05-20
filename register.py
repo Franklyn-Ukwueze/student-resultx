@@ -9,5 +9,19 @@ print (f"\nMy name is {new_student.name} and I am {new_student.age} years old. "
 
 new_student.enter_score()
 
-print(f"\nSubjects for {new_student.name} are:\n{new_student.subjects}")
-
+print(
+    f"""
+    ===========================================
+    Welcome to TechApprentice Academy.
+    Final RESULT SHEET.
+    -------------------------------------------
+    Student Name: {new_student.name}
+    Student Age: {new_student.age}
+    Student Gender: {new_student.gender}
+    ===========================================
+    Subjects:
+    ===========================================
+    Average 
+    Comment
+    ===========================================
+    """)

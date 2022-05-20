@@ -20,3 +20,4 @@ class Student:
             total = sum(score_list)
             score_list.append(total)
             self.subjects[subject_name] = score_list
+            average_score = ((sum(range(total)))/number_of_scores) * 100

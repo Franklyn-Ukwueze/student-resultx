@@ -1,0 +1,2 @@
+Today we will be learning about opening files with python,
+isn't that great?

@@ -2,11 +2,3 @@ A new file is being created...
 This is content from textfile.txt: 
 Today we will be learning about opening files with python,
 isn't that great?
-A new file is being created...
-This is content from textfile.txt: 
-Today we will be learning about opening files with python,
-isn't that great?
-A new file is being created...
-This is content from textfile.txt: 
-Today we will be learning about opening files with python,
-isn't that great?

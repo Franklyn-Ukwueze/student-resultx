@@ -21,8 +21,6 @@ Student Age: {new_student.age}
 Student Gender: {new_student.gender}
 ===========================================
 """
-print(header)
-print("Subjects:")
 average_score = 0
 
 for x in scores_dict.keys():
@@ -52,18 +50,28 @@ Average: {current_average}
 Comment: {remarks}
 ===========================================
 """
-print(footer)
+
+with open('results.txt', 'x') as results:
+    results.write("Your file is being created...")
+    results.write(header)
+    results.write("Subjects:")
+    for x in scores_dict.keys():
+        y = scores_dict[x] 
+        results.write(f'\n{x}: {y[-1]}')
+    results.write(footer)
 
 """
     ===========================================
-    Welcome to TechApprentice Academy.
-    Final RESULT SHEET.
-    -------------------------------------------
-    Student Name: 
-    Student Age: 
-    Student Gender: 
-    ===========================================
-    Subjects: 
+    |Welcome to TechApprentice Academy.          
+    |Final RESULT SHEET.
+    |-------------------------------------------
+    |Student Name: 
+    |Student Age: 
+    |Student Gender: 
+    |===========================================
+     
+     
+     Subjects: 
     ===========================================
     Average: 
     Comment:

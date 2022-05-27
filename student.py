@@ -1,3 +1,7 @@
+from itertools import repeat
+from multiprocessing.reduction import register
+
+
 class Student:
     def __init__(self,name,age,gender):
         self.name = name
@@ -20,6 +24,6 @@ class Student:
             total = sum(score_list)
             score_list.append(total)
             self.subjects[subject_name] = score_list
-        
-        
+
+            
         

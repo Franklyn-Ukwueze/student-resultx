@@ -1,16 +1,46 @@
 Your file is being created...
-===========================================
-Welcome to TechApprentice Academy.
-Final RESULT SHEET.
--------------------------------------------
-Student Name: Franklyn
-Student Age: 20
-Student Gender: Male
-===========================================
-Subjects:
-Maths: 80
-English: 90
-===========================================
-Average: 85.0
-Comment: Very Good
-===========================================
+    ===========================================
+    Welcome to TechApprentice Academy.
+    Final RESULT SHEET.
+    -------------------------------------------
+    Student Name: f
+    Student Age: 20
+    Student Gender: m
+    ===========================================
+    Subjects:
+ma: 80
+    ===========================================
+    Average: 80.0
+    Comment: Very Good
+    ===========================================
+    Your file is being created...
+    ===========================================
+    Welcome to TechApprentice Academy.
+    Final RESULT SHEET.
+    -------------------------------------------
+    Student Name: f
+    Student Age: 20
+    Student Gender: m
+    ===========================================
+    Subjects:
+ma: 80
+    ===========================================
+    Average: 80.0
+    Comment: Very Good
+    ===========================================
+    Your file is being created...
+    ===========================================
+    Welcome to TechApprentice Academy.
+    Final RESULT SHEET.
+    -------------------------------------------
+    Student Name: g
+    Student Age: 19
+    Student Gender: f
+    ===========================================
+    Subjects:
+eng: 80
+    ===========================================
+    Average: 80.0
+    Comment: Very Good
+    ===========================================
+    

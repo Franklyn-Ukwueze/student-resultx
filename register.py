@@ -15,15 +15,15 @@ for x in range (number_of_students):
     scores_dict = new_student.subjects
 
     header = f"""
-    ===========================================
-    Welcome to TechApprentice Academy.
-    Final RESULT SHEET.
-    -------------------------------------------
-    Student Name: {new_student.name}
-    Student Age: {new_student.age}
-    Student Gender: {new_student.gender}
-    ===========================================
-    """
+===========================================
+Welcome to TechApprentice Academy.
+Final RESULT SHEET.
+-------------------------------------------
+Student Name: {new_student.name}
+Student Age: {new_student.age}
+Student Gender: {new_student.gender}
+===========================================
+"""
     average_score = 0
 
     for x in scores_dict.keys():
@@ -48,14 +48,13 @@ for x in range (number_of_students):
         remarks = 'Outstanding'
 
     footer = f"""
-    ===========================================
-    Average: {current_average}
-    Comment: {remarks}
-    ===========================================
+===========================================
+Average: {current_average}
+Comment: {remarks}
+===========================================
     """
 
     with open('results.txt', 'a') as results:
-        results.write("Your file is being created...")
         results.write(header)
         results.write("Subjects:")
         for x in scores_dict.keys():
@@ -63,7 +62,20 @@ for x in range (number_of_students):
             results.write(f'\n{x}: {y[-1]}')
         results.write(footer)
 
+    resultsgrouped = f"""
+    Student: {new_student.name}
+    Average: {current_average}
+    Comment: {remarks}
+    _______________________________________
+    """    
+    class_average = 0
+    class_average += current_average
+    new_classaverage = class_average / number_of_students 
 
+    with open('classresult.txt', 'a') as classresult:
+        for x in range(number_of_students):
+            classresult.write(resultsgrouped)
+        classresult.write(f"Class Average: {new_classaverage}")
 
 
 

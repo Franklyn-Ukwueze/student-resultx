@@ -1,13 +1,16 @@
+import datetime
+
+
 class Transactions:
-    def __init__(client, date, type, status, details):
+    def __init__(self, type, status):
         """
         This records the date, type, staus and details
         of all the transactions made by the customer
         """   
-        client.date = date
-        client.type = type
-        client.status = status
-        client.details = {}
+        self.date = datetime.datetime
+        self.type = type
+        self.status = status
+        self.details = {}
 
-    def  print(client):
-        return client.__dict__
+    def  print(self):
+        return self.__dict__

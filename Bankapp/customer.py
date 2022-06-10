@@ -2,13 +2,14 @@ import random
 from transactions import Transactions
 
 class Customer:
-    def __init__(self, name, phone_number, gender, D_O_B, account_number=0, transactions={}, balance=0):
+    def __init__(self, name, phone_number,
+     gender, D_O_B, account_number=0, transactions={}, balance=0):
         """
         create customer, ensure to add name, phone number, gender and date of birth.
         System will generate acccount number
         """
         self.name = name
-        self.phone = phone_number
+        self.phone_number = phone_number
         self.gender = gender
         self.date_of_birth = D_O_B
 
@@ -27,14 +28,14 @@ class Customer:
 
     def send_money(self, account_name, account_number, bank_name, amount):
         """
-        Theis method debits customer balance and sends to account numbr provided.
+        Theis method debits customer balance and sends to account number provided.
         Returns boolean to indicate success or failure of transaction.
         """
         if self.balance > amount:
             new_transaction = Transactions("TRANSFER","STARTED")
             new_transaction.details = {
                 "bank name": bank_name,
-                "account_name": account_name,
+                "account name": account_name,
                 "account number": account_number,
                 "amount": amount
             }
@@ -42,8 +43,20 @@ class Customer:
             self.transactions[new_transaction.date] = new_transaction.type
 
 
-    def buy_airtime(self):
-        pass
+    def buy_airtime(self, network, phone_number, airtime_type, amount):
+        """
+        This method debits customer balance and purchases  airtime for the phone number provided.
+        """
+        if self.balance > amount:
+            new_transaction = Transactions("AIRTIME PURCHASE","STARTED")
+            new_transaction.details = {
+                "service provider": network,
+                "amount": amount,
+                "phone number": phone_number,
+                "type": airtime_type
+            }
+            self.balance -= amount
+            self.transactions[new_transaction.date] = new_transaction.type 
 
     def make_payments(self):
         pass

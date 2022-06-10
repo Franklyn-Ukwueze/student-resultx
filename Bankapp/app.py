@@ -27,14 +27,14 @@ def add_new_cutomer(name=""):
         existing_customer.pop("_id")
         customer_info = Customer(**existing_customer)
         # customer_info = Customer(
-        #     name=existing_customer["name"],
-        #     phone_number=existing_customer["phone_number"],
-        #     gender=existing_customer["gender"],
-        #     D_O_B=existing_customer["date_of_birth"],
-        #     account_number=existing_customer["account_number"],
-        #     transactions=existing_customer["transactions"],
-        #     balance=existing_customer["balance"]
-        # )
+        #      name=existing_customer["name"],
+        #      phone_number=existing_customer["phone_number"],
+        #      gender=existing_customer["gender"],
+        #      D_O_B=existing_customer["date_of_birth"],
+        #      account_number=existing_customer["account_number"],
+        #      transactions=existing_customer["transactions"],
+        #      balance=existing_customer["balance"]
+        #  )
         return customer_info
     else:
         new_customer = Customer(

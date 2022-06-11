@@ -58,8 +58,19 @@ class Customer:
             self.balance -= amount
             self.transactions[new_transaction.date] = new_transaction.type 
 
-    def make_payments(self):
-        pass
+    def make_payments(self, payment_destination, payment_ref, amount):
+        """
+        This method debits customer account and sends money to the paymet detination provided
+        """
+        if self.balance > amount:
+            new_transaction = Transactions("PAYMENT", "STARTED")
+            new_transaction.details = {
+                "payment detination": payment_destination,
+                "payment reference": payment_ref,
+                "amount": amount
+            }        
+            self.balance -= amount
+            self.transactions[new_transaction.date] = new_transaction.type
 
     def deposit_cash(self):
         pass

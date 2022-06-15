@@ -75,17 +75,17 @@ def customer_exists(customer_data):
         return None
 
 def transfer(sender_name, receiver_name, receiver_account_number, receiver_bank, amount):        
-    customer = add_new_cutomer(sender_name)
-    if customer:
-        customer.balance = 1000000
-        customer.send_money(receiver_name, receiver_account_number, receiver_bank, amount)
-        
-        update_filter = {"account_ number": customer.account_number}
-        update_value = { "$set": {"transactions": customer.transactions} }
-        my_collection.update_one(update_filter, update_value)
+     customer = add_new_cutomer(sender_name)
+     if customer:
+         customer.balance = 1000000
+         customer.send_money(receiver_name, receiver_account_number, receiver_bank, amount)
+       
+         update_filter = {"account_ number": customer.account_number}
+         update_value = { "$set": {"transactions": customer.transactions} }
+         my_collection.update_one(update_filter, update_value)
 
-        data = my_collection.find_one({"account_number": customer.account_number})
-        print(data)
+         data = my_collection.find_one({"account_number": customer.account_number})
+         print(data)
 
 sender, receiver, account, bank, amount = "Franklyn Ifechukwu", "Samson Onyebuchi", 3237654321, "Fidelity Bank", 30000
 transfer(sender, receiver, account, bank, amount)

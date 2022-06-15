@@ -87,6 +87,20 @@ def transfer(sender_name, receiver_name, receiver_account_number, receiver_bank,
          data = my_collection.find_one({"account_number": customer.account_number})
          print(data)
 
-sender, receiver, account, bank, amount = "Franklyn Ifechukwu", "Samson Onyebuchi", 3237654321, "Fidelity Bank", 30000
-transfer(sender, receiver, account, bank, amount)
+def buy_credit(purchaser, phone_number, network, airtime_type, amount):
+    customer = add_new_cutomer(purchaser) 
+    if customer:
+        customer.balance = 1000000
+        customer.buy_airtime(network,phone_number, airtime_type,amount)
+
+        update_filter = {"account_number": customer.account_number}
+        update_value = {"$set":{"transactions": customer.transactions}}
+        my_collection.update_one(update_filter, update_value)
+        data = my_collection.find_one({"account_number": customer.account_number})
+        print(data)
+
+buy_credit("Franklyn Ifechukwu", '09012462223', 'mtn', 'credit', 2000 )
+
+# sender, receiver, account, bank, amount = "Franklyn Ifechukwu", "Samson Onyebuchi", 3237654321, "Fidelity Bank", 30000
+# transfer(sender, receiver, account, bank, amount)
 #result = add_new_cutomer("Franklyn Ifechukwu")

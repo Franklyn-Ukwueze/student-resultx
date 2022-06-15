@@ -34,9 +34,9 @@ class Customer:
         if self.balance > amount:
             new_transaction = Transactions("TRANSFER","STARTED")
             new_transaction.details = {
-                "bank name": bank_name,
-                "account name": account_name,
-                "account number": account_number,
+                "bank_name": bank_name,
+                "account_name": account_name,
+                "account_number": account_number,
                 "amount": amount
             }
             self.balance -= amount #same as self.balance = self.balance - amount
@@ -50,9 +50,9 @@ class Customer:
         if self.balance > amount:
             new_transaction = Transactions("AIRTIME PURCHASE","STARTED")
             new_transaction.details = {
-                "service provider": network,
+                "service_provider": network,
                 "amount": amount,
-                "phone number": phone_number,
+                "phone_number": phone_number,
                 "type": airtime_type
             }
             self.balance -= amount

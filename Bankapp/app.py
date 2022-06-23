@@ -24,7 +24,7 @@ def add_new_cutomer(name=""):
     existing_customer = customer_exists(split_input[0])
     if existing_customer:
         print(f"{split_input[0]} already exists as a customer.\nThank you.")
-        existing_customer.pop("_id")
+        existing_customer.pop("_id","phone")
         customer_info = Customer(**existing_customer)
         # customer_info = Customer(
         #      name=existing_customer["name"],
@@ -99,8 +99,8 @@ def buy_credit(purchaser, phone_number, network, airtime_type, amount):
         data = my_collection.find_one({"account_number": customer.account_number})
         print(data)
 
-buy_credit("Franklyn Ifechukwu", '09012462223', 'mtn', 'credit', 2000 )
-
-# sender, receiver, account, bank, amount = "Franklyn Ifechukwu", "Samson Onyebuchi", 3237654321, "Fidelity Bank", 30000
-# transfer(sender, receiver, account, bank, amount)
+#buy_credit("ify", "09012462223", "mtn", "credit", 2000 )
+#add_new_cutomer()
+sender, receiver, account, bank, amount = "ify", "Samson Onyebuchi", 3237654321, "Fidelity Bank", 30000
+transfer(sender, receiver, account, bank, amount)
 #result = add_new_cutomer("Franklyn Ifechukwu")

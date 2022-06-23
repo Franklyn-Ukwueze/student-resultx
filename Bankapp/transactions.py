@@ -7,7 +7,7 @@ class Transactions:
         This records the date, type, staus and details
         of all the transactions made by the customer
         """   
-        self.date = datetime.datetime
+        self.date = str(datetime.datetime)
         self.type = type
         self.status = status
         self.details = {}

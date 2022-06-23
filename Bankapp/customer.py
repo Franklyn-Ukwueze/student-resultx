@@ -3,7 +3,7 @@ from transactions import Transactions
 
 class Customer:
     def __init__(self, name, phone_number,
-     gender, D_O_B, account_number=0, transactions={}, balance=0):
+     gender, date_of_birth, account_number=0, transactions={}, balance=0):
         """
         create customer, ensure to add name, phone number, gender and date of birth.
         System will generate acccount number
@@ -11,7 +11,7 @@ class Customer:
         self.name = name
         self.phone_number = phone_number
         self.gender = gender
-        self.date_of_birth = D_O_B
+        self.date_of_birth = date_of_birth
 
         if account_number == 0:
             self.account_number = self.generate_account_number()

@@ -6,7 +6,7 @@ client = pymongo.MongoClient("mongodb://localhost:27017")
 db = client["bank_app"]
 my_collection = db["customer_data"]
 
-def add_new_cutomer(name=""):
+def add_new_customer(name=""):
     split_input = []
     if name:
         split_input.append(name)
@@ -75,7 +75,7 @@ def customer_exists(customer_data):
         return None
 
 def transfer(sender_name, receiver_name, receiver_account_number, receiver_bank, amount):        
-     customer = add_new_cutomer(sender_name)
+     customer = add_new_customer(sender_name)
      if customer:
          customer.balance = 1000000
          customer.send_money(receiver_name, receiver_account_number, receiver_bank, amount)
@@ -88,10 +88,22 @@ def transfer(sender_name, receiver_name, receiver_account_number, receiver_bank,
          print(data)
 
 def buy_credit(purchaser, phone_number, network, airtime_type, amount):
-    customer = add_new_cutomer(purchaser) 
+    customer = add_new_customer(purchaser) 
     if customer:
         customer.balance = 1000000
         customer.buy_airtime(network,phone_number, airtime_type,amount)
+
+        update_filter = {"account_number": customer.account_number}
+        update_value = {"$set":{"transactions": customer.transactions}}
+        my_collection.update_one(update_filter, update_value)
+        data = my_collection.find_one({"account_number": customer.account_number})
+        print(data)
+
+def pay_bills(payer, payment_destination, payment_ref, amount):
+    customer = add_new_customer(payer)
+    if customer:
+        customer.balance = 1000000
+        customer.make_payments(payment_destination, payment_ref, amount)
 
         update_filter = {"account_number": customer.account_number}
         update_value = {"$set":{"transactions": customer.transactions}}

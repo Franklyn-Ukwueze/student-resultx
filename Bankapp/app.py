@@ -99,8 +99,8 @@ def buy_credit(purchaser, phone_number, network, airtime_type, amount):
         data = my_collection.find_one({"account_number": customer.account_number})
         print(data)
 
-#buy_credit("ify", "09012462223", "mtn", "credit", 2000 )
+buy_credit("ify", "09012462223", "mtn", "credit", 2000 )
 #add_new_cutomer()
 sender, receiver, account, bank, amount = "ify", "Samson Onyebuchi", 3237654321, "Fidelity Bank", 30000
-transfer(sender, receiver, account, bank, amount)
+#transfer(sender, receiver, account, bank, amount)
 #result = add_new_cutomer("Franklyn Ifechukwu")

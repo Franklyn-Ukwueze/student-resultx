@@ -111,8 +111,18 @@ def pay_bills(payer, payment_destination, payment_ref, amount):
         data = my_collection.find_one({"account_number": customer.account_number})
         print(data)
 
-buy_credit("ify", "09012462223", "mtn", "credit", 2000 )
+def credit(receiver, sender_name, sender_phoneNumber, amount):
+    customer = add_new_customer(receiver)
+    if customer:
+        customer.deposit_cash(sender_name, sender_phoneNumber, amount)
+
+        update_filter = {"account_number": customer.account_number}
+        update_value = {"$set":{"transactions": customer.transactions}}
+        my_collection.update_one(update_filter, update_value)
+        data = my_collection.find_one({"account_number": customer.account_number})
+        print(data)
+#buy_credit("ify", "09012462223", "mtn", "credit", 2000 )
 #add_new_cutomer()
-sender, receiver, account, bank, amount = "ify", "Samson Onyebuchi", 3237654321, "Fidelity Bank", 30000
+#sender, receiver, account, bank, amount = "ify", "Samson Onyebuchi", 3237654321, "Fidelity Bank", 30000
 #transfer(sender, receiver, account, bank, amount)
 #result = add_new_cutomer("Franklyn Ifechukwu")

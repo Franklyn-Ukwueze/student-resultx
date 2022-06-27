@@ -72,8 +72,20 @@ class Customer:
             self.balance -= amount
             self.transactions[new_transaction.date] = new_transaction.type
 
-    def deposit_cash(self):
-        pass
+    def deposit_cash(self, depositor_name, depositor_phone_number, amount):
+        """
+        This method credits customer account when it receives a transfer request from another account
+        """
+        if amount > 0:
+            new_transaction = Transactions("CREDIT", "SUCCESSFUL")
+            new_transaction.details ={
+                "depositor name": depositor_name,
+                "depositor phone number": depositor_phone_number,
+                "amount": amount 
+            }
+            self.balance += amount
+            self.transactions[new_transaction.date] = new_transaction.type
+        
 
     def print(self):
         return self.__dict__

@@ -2,13 +2,13 @@ import datetime
 
 
 class Transactions:
-    def __init__(self, type, status):
+    def __init__(self, description, status):
         """
         This records the date, type, staus and details
         of all the transactions made by the customer
         """   
         self.date = str(datetime.datetime)
-        self.type = type
+        self.description = description
         self.status = status
         self.details = {}
 

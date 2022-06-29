@@ -1,4 +1,4 @@
-import json
+
 import pymongo
 from customer import Customer
 
@@ -24,7 +24,7 @@ def add_new_customer(name=""):
     existing_customer = customer_exists(split_input[0])
     if existing_customer:
         print(f"{split_input[0]} already exists as a customer.\nThank you.")
-        existing_customer.pop("_id","phone")
+        existing_customer.pop("_id")
         customer_info = Customer(**existing_customer)
         # customer_info = Customer(
         #      name=existing_customer["name"],
@@ -75,29 +75,31 @@ def customer_exists(customer_data):
         return None
 
 def transfer(sender_name, receiver_name, receiver_account_number, receiver_bank, amount):        
-     customer = add_new_customer(sender_name)
-     if customer:
-         customer.balance = 1000000
-         customer.send_money(receiver_name, receiver_account_number, receiver_bank, amount)
+    customer = add_new_customer(sender_name)
+    if customer:
+        customer.balance = 1000000
+        customer.send_money(receiver_name, receiver_account_number, receiver_bank, amount)
        
-         update_filter = {"account_ number": customer.account_number}
-         update_value = { "$set": {"transactions": customer.transactions} }
-         my_collection.update_one(update_filter, update_value)
+        update_filter = {"account_ number": customer.account_number}
+        update_value = {"$set":{"transactions": customer.transactions}}
+        my_collection.update_one(update_filter, update_value)
 
-         data = my_collection.find_one({"account_number": customer.account_number})
-         print(data)
+        data = my_collection.find_one({"account_number": customer.account_number})
+        print(data)
 
 def buy_credit(purchaser, phone_number, network, airtime_type, amount):
     customer = add_new_customer(purchaser) 
     if customer:
         customer.balance = 1000000
-        customer.buy_airtime(network,phone_number, airtime_type,amount)
+        customer.buy_airtime(network, phone_number, airtime_type, amount)
 
         update_filter = {"account_number": customer.account_number}
         update_value = {"$set":{"transactions": customer.transactions}}
         my_collection.update_one(update_filter, update_value)
+
         data = my_collection.find_one({"account_number": customer.account_number})
         print(data)
+
 
 def pay_bills(payer, payment_destination, payment_ref, amount):
     customer = add_new_customer(payer)
@@ -121,8 +123,10 @@ def credit(receiver, sender_name, sender_phoneNumber, amount):
         my_collection.update_one(update_filter, update_value)
         data = my_collection.find_one({"account_number": customer.account_number})
         print(data)
-#buy_credit("ify", "09012462223", "mtn", "credit", 2000 )
-#add_new_cutomer()
-#sender, receiver, account, bank, amount = "ify", "Samson Onyebuchi", 3237654321, "Fidelity Bank", 30000
-#transfer(sender, receiver, account, bank, amount)
+#buy_credit("Franc", "09012462223", "mtn", "credit", 2000 )
+#add_new_customer()
+#sender, receiver, account, bank, amount = "Ifechu", "Samson Onyebuchi", 3237654321, "Fidelity Bank", 30000
+#transfer("Franc", "Samson Onyebuchi", "3237654321", "Fidelity Bank", 30000)
+#credit("Franc", "samson", "07078926789", 8000 )
+#pay_bills("Franc", "nepa", "paying electricty bill", 6000)
 #result = add_new_cutomer("Franklyn Ifechukwu")

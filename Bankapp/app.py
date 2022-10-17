@@ -1,4 +1,3 @@
-
 import pymongo
 from customer import Customer
 
@@ -19,7 +18,7 @@ def add_new_customer(name=""):
         if len(split_input) < 4: return None
 
         for i in range(len(split_input)):
-            split_input[i] = split_input[i].strip()
+             split_input[i] = split_input[i].strip()
 
     existing_customer = customer_exists(split_input[0])
     if existing_customer:

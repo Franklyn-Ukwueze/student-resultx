@@ -2,7 +2,7 @@ def main():
     print(fuel_lvl())
 
 
-def check_values():
+def check_value():
     while True:
         user_input = input("Fraction: ").split("/")
         try:
@@ -31,4 +31,5 @@ def fuel_lvl():
             continue
     return level
 
-main()
+if __name__ == "__main__":
+    main()
